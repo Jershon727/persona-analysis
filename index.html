@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Persona Analysis - Q1 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 40px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 32px;
+            font-size: 14px;
+        }
+        h2 {
+            font-size: 20px;
+            margin: 32px 0 16px 0;
+            color: #1a1a1a;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 16px;
+            margin: 24px 0 12px 0;
+            color: #444;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        th {
+            background: #f8f9fa;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+        }
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #eee;
+        }
+        tr:hover {
+            background: #f8f9fa;
+        }
+        .highlight {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .negative {
+            color: #dc2626;
+        }
+        .positive {
+            color: #16a34a;
+        }
+        .insight {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 12px 16px;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        .persona-card {
+            background: #fafafa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0;
+            border: 1px solid #eee;
+        }
+        .persona-card h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .persona-card .stats {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .persona-card p {
+            font-size: 14px;
+            margin: 8px 0;
+        }
+        .persona-card .action {
+            background: #dbeafe;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-green { background: #dcfce7; color: #166534; }
+        .badge-red { background: #fee2e2; color: #991b1b; }
+        .badge-blue { background: #dbeafe; color: #1e40af; }
+        .badge-yellow { background: #fef3c7; color: #92400e; }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .summary-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .summary-box .number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        .summary-box .label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+        @media print {
+            body { padding: 20px; }
+            .container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Persona Analysis</h1>
+        <p class="subtitle">Q1 2026 (January 1 - March 6) | After Services Inc</p>
+
+        <div class="summary-grid">
+            <div class="summary-box">
+                <div class="number">1,659</div>
+                <div class="label">Total Deals</div>
+            </div>
+            <div class="summary-box">
+                <div class="number">234</div>
+                <div class="label">Won Deals</div>
+            </div>
+            <div class="summary-box">
+                <div class="number">48.2%</div>
+                <div class="label">Best Conv Rate (Burden Lifter)</div>
+            </div>
+            <div class="summary-box">
+                <div class="number">7.9%</div>
+                <div class="label">Worst Conv Rate (Practical Min.)</div>
+            </div>
+        </div>
+
+        <h2>Core Metrics by Persona</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Persona</th>
+                    <th>Deals</th>
+                    <th>Won</th>
+                    <th>Conv Rate</th>
+                    <th>Avg Age</th>
+                    <th>Age (Won)</th>
+                    <th>Days to Close</th>
+                    <th>Calls/Deal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="badge badge-green">Burden Lifter</span></td>
+                    <td>147</td>
+                    <td>40</td>
+                    <td class="highlight">48.2%</td>
+                    <td>70.9</td>
+                    <td>77.5</td>
+                    <td class="highlight">7.0</td>
+                    <td>1.2</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-blue">Crisis Responder</span></td>
+                    <td>58</td>
+                    <td>8</td>
+                    <td class="highlight">36.4%</td>
+                    <td>59.5</td>
+                    <td>64.1</td>
+                    <td>8.3</td>
+                    <td>1.1</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-yellow">Responsible Planner</span></td>
+                    <td>1,254</td>
+                    <td>174</td>
+                    <td>31.2%</td>
+                    <td>64.6</td>
+                    <td>66.8</td>
+                    <td>9.1</td>
+                    <td>1.4</td>
+                </tr>
+                <tr>
+                    <td>Early Bird</td>
+                    <td>16</td>
+                    <td>1</td>
+                    <td>25.0%</td>
+                    <td>52.8</td>
+                    <td>30.0</td>
+                    <td>5.3</td>
+                    <td>1.1</td>
+                </tr>
+                <tr>
+                    <td><span class="badge badge-red">Practical Minimalist</span></td>
+                    <td>184</td>
+                    <td>11</td>
+                    <td class="negative">7.9%</td>
+                    <td>65.8</td>
+                    <td>69.0</td>
+                    <td>8.8</td>
+                    <td>1.2</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Call Duration Analysis</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Persona</th>
+                    <th>Avg Call (All)</th>
+                    <th>Avg Call (Won)</th>
+                    <th>Delta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Responsible Planner</td>
+                    <td>5.3 min</td>
+                    <td class="highlight">12.0 min</td>
+                    <td class="positive">+6.7 min</td>
+                </tr>
+                <tr>
+                    <td>Burden Lifter</td>
+                    <td>6.3 min</td>
+                    <td>8.7 min</td>
+                    <td class="positive">+2.4 min</td>
+                </tr>
+                <tr>
+                    <td>Crisis Responder</td>
+                    <td>6.9 min</td>
+                    <td>8.0 min</td>
+                    <td class="positive">+1.1 min</td>
+                </tr>
+                <tr>
+                    <td>Practical Minimalist</td>
+                    <td>4.0 min</td>
+                    <td>7.7 min</td>
+                    <td class="positive">+3.7 min</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="insight">
+            <strong>Insight:</strong> Responsible Planners who close require <strong>2x longer calls</strong> than average. They need more conversation time to commit.
+        </div>
+
+        <h2>Sentiment Analysis</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Persona</th>
+                    <th>Overall</th>
+                    <th>Won</th>
+                    <th>Lost</th>
+                    <th>Spread</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Crisis Responder</td>
+                    <td class="positive">+0.16</td>
+                    <td class="positive highlight">+0.54</td>
+                    <td class="negative">-0.13</td>
+                    <td>0.67</td>
+                </tr>
+                <tr>
+                    <td>Burden Lifter</td>
+                    <td class="positive">+0.03</td>
+                    <td class="positive">+0.13</td>
+                    <td class="negative">-0.20</td>
+                    <td>0.33</td>
+                </tr>
+                <tr>
+                    <td>Responsible Planner</td>
+                    <td class="negative">-0.10</td>
+                    <td class="positive">+0.25</td>
+                    <td class="negative">-0.35</td>
+                    <td>0.60</td>
+                </tr>
+                <tr>
+                    <td>Practical Minimalist</td>
+                    <td class="negative highlight">-0.22</td>
+                    <td>+0.09</td>
+                    <td class="negative">-0.30</td>
+                    <td>0.39</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="insight">
+            <strong>Insight:</strong> Practical Minimalists start negative and barely get positive even when they win. Crisis Responders swing most positive when closing.
+        </div>
+
+        <h2>Talk Ratio & Silence</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Persona</th>
+                    <th>Agent Talk %</th>
+                    <th>Silence %</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Burden Lifter</td>
+                    <td>48.4%</td>
+                    <td class="highlight">18.9%</td>
+                </tr>
+                <tr>
+                    <td>Crisis Responder</td>
+                    <td>50.1%</td>
+                    <td>19.9%</td>
+                </tr>
+                <tr>
+                    <td>Responsible Planner</td>
+                    <td>43.7%</td>
+                    <td class="negative">30.5%</td>
+                </tr>
+                <tr>
+                    <td>Practical Minimalist</td>
+                    <td>43.0%</td>
+                    <td>29.9%</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="insight">
+            <strong>Insight:</strong> Burden Lifters and Crisis Responders have <strong>less silence</strong> — more engaged, active conversations. Responsible Planners have high silence — they're thinking and processing.
+        </div>
+
+        <h2>Package Mix (Won Deals)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Persona</th>
+                    <th>Crest</th>
+                    <th>Summit</th>
+                    <th>Base</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Responsible Planner</td>
+                    <td>73%</td>
+                    <td>17%</td>
+                    <td>10%</td>
+                </tr>
+                <tr>
+                    <td>Burden Lifter</td>
+                    <td>84%</td>
+                    <td>6%</td>
+                    <td>10%</td>
+                </tr>
+                <tr>
+                    <td>Crisis Responder</td>
+                    <td>100%</td>
+                    <td>0%</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Practical Minimalist</td>
+                    <td>75%</td>
+                    <td>12.5%</td>
+                    <td>12.5%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Persona Profiles & Recommendations</h2>
+
+        <div class="persona-card">
+            <h4>🏆 Burden Lifter <span class="badge badge-green">Best Performer</span></h4>
+            <div class="stats">Conv: 48.2% | Age: 77.5 | Close: 7 days (fastest)</div>
+            <p>Motivated by not leaving a mess for family. Low silence, engaged calls — knows what they want. Almost all buy Crest.</p>
+            <div class="action"><strong>Action:</strong> Prioritize these leads, they close fast with minimal friction.</div>
+        </div>
+
+        <div class="persona-card">
+            <h4>⚡ Crisis Responder <span class="badge badge-blue">High Potential</span></h4>
+            <div class="stats">Conv: 36.4% | Age: 64 | Close: 8 days</div>
+            <p>Highest sentiment on won deals (+0.54). 100% Crest — no upsell or downsell. Small sample (58 deals) but strong signals.</p>
+            <div class="action"><strong>Action:</strong> Identify trigger events faster, strike while emotionally motivated.</div>
+        </div>
+
+        <div class="persona-card">
+            <h4>📋 Responsible Planner <span class="badge badge-yellow">Volume Play</span></h4>
+            <div class="stats">Conv: 31.2% | Age: 67 | Close: 9 days</div>
+            <p>78% of all deals — this is your core customer. Needs 12 min calls to close (2x average). High silence — they're deliberate decision-makers. Best Summit uptake (17%).</p>
+            <div class="action"><strong>Action:</strong> Train reps to slow down, let them process. Don't rush the close.</div>
+        </div>
+
+        <div class="persona-card">
+            <h4>❌ Practical Minimalist <span class="badge badge-red">Deprioritize</span></h4>
+            <div class="stats">Conv: 7.9% | Age: 69 | Close: 9 days</div>
+            <p>Starts negative sentiment, barely positive when winning. Shortest calls (4 min avg) — they're price-shopping. 184 deals, only 11 won.</p>
+            <div class="action"><strong>Action:</strong> Either change approach dramatically or deprioritize these leads entirely.</div>
+        </div>
+
+        <hr style="margin: 40px 0; border: none; border-top: 1px solid #eee;">
+        <p style="font-size: 12px; color: #999; text-align: center;">
+            Generated March 6, 2026 | After Services Inc | Data source: BigQuery rpt__sales_calls + dim__policy
+        </p>
+    </div>
+</body>
+</html>
